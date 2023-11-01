@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: url('CanadaFlag.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .container:hover {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            align-items: center;
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0px;
+            border: 1px solid #0422cd;
+            border-radius: 3px;
+            font-size: 16px;
+            
+        }
+
+        .form-group input:focus {
+            border-color: #333;
+        }
+
+        .form-group button {
+            width: 100%;
+            background: rgb(6, 86, 110);
+            color: #000000;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-group button:hover {
+            background: #140ec6;
+        }
+
+        .help-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .help-link a {
+            font-weight: bold;
+            font-size: small;
+            text-decoration: none;
+            color: #111211;
+        }
+        .help-link strong {
+            font-weight: bold;
+            font-size: small;
+            text-decoration: none;
+            color: #0004ff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Canada Visa Check</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="passport-number">Passport Number</label>
+                <input type="text" id="passport-number" name="passport-number" required>
+            </div>
+            <div class="form-group">
+                <label for="tracking-id">Tracking ID</label>
+                <input type="text" id="tracking-id" name="tracking-id" required>
+            </div>
+            <div class="form-group">
+                <label for="user-id">UserID</label>
+                <input type="text" id="user-id" name="user-id" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="login-button" style="font-size: 20px;">Check</button>
+            </div>
+        </form>
+        <div class="help-link">
+            <a>Having trouble to check your visa status?</a> 
+            <a href="https://ircc.canada.ca/english/helpcentre/index-featured-can.asp"><strong>Click here</strong> for help</a>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const loginButton = document.getElementById('login-button');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const passportNumber = loginForm.elements['passport-number'].value;
+            const trackingId = loginForm.elements['tracking-id'].value;
+            const userId = loginForm.elements['user-id'].value;
+
+            // You can add your login logic here
+            // For this example, we'll redirect to a new link if the login is successful
+            if (passportNumber === 'EK0959476' && trackingId === '96' && userId === '74320') {
+                window.location.href = 'Output.html'; // Replace with your desired URL
+            } else {
+                alert('You have entered INVALID Information.. Please try with the correct information!!');
+            }
+        });
+    </script>
+</body>
+</html>
